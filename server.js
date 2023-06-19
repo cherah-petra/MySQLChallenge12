@@ -19,8 +19,8 @@ const db = mysql.createConnection({
 db.connect(function (err) {
   if (err) throw err;
   console.log("connected as id " + db.threadId);
-
   begin();
+  
 });
 
 function begin() {
@@ -183,6 +183,11 @@ function addEmployee() {
         type: "input",
         message: "What is the manager ID number?",
         name: "managerID",
+      },
+      {
+        type: "input",
+        message: "What is the department ID number?",
+        name: "department_id",
       },
     ])
     .then(function (answer) {
