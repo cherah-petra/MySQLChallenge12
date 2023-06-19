@@ -184,6 +184,11 @@ function addEmployee() {
         message: "What is the manager ID number?",
         name: "managerID",
       },
+      {
+        type: "input",
+        message: "What is the department ID number?",
+        name: "department_id",
+      },
     ])
     .then(function (answer) {
       db.query(
