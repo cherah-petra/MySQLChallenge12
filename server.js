@@ -19,8 +19,8 @@ const db = mysql.createConnection({
 db.connect(function (err) {
   if (err) throw err;
   console.log("connected as id " + db.threadId);
-
   begin();
+  
 });
 
 function begin() {
