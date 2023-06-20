@@ -13,7 +13,7 @@ const db = mysql.createConnection({
   user: "root",
 
   password: "password",
-  database: "employee_tracker",
+  database: "employee_db",
 });
 
 db.connect(function (err) {
@@ -100,11 +100,11 @@ function addDepartment() {
     .prompt({
       type: "input",
       message: "What is the name of the new department?",
-      name: "departmentName",
+      name: "dName",
     })
     .then(function (answer) {
       db.query(
-        "INSERT INTO department (name) VALUES (?)",
+        "INSERT INTO department (dName) VALUES (?)",
         [answer.departmentName],
         function (err, res) {
           if (err) throw err;
@@ -128,17 +128,17 @@ function addRole() {
       {
         type: "input",
         message: "What is the name of the new role?",
-        name: "roleName",
+        name: "title",
       },
       {
         type: "input",
         message: "What is the salary for the new role?",
-        name: "salaryTotal",
+        name: "salary",
       },
       {
         type: "input",
         message: "What is the department id for the new role?",
-        name: "deptID",
+        name: "dName",
       },
     ])
     .then(function (answer) {
@@ -167,27 +167,27 @@ function addEmployee() {
       {
         type: "input",
         message: "What is the first name of the new employee?",
-        name: "firstName",
+        name: "first_name",
       },
       {
         type: "input",
         message: "What is the last name of the new employee?",
-        name: "lastName",
+        name: "last_name",
       },
       {
         type: "input",
         message: "What is the role id for the new employee?",
-        name: "roleID",
+        name: "role_id",
       },
       {
         type: "input",
         message: "What is the manager ID number?",
-        name: "managerID",
+        name: "manager_id",
       },
       {
         type: "input",
         message: "What is the department ID number?",
-        name: "department_id",
+        name: "dName",
       },
     ])
     .then(function (answer) {
@@ -216,12 +216,12 @@ function changeRole() {
       {
         type: "input",
         message: "Which employee would you like to make changes to?",
-        name: "update",
+        name: "first_name",
       },
       {
         type: "input",
         message: "What should the employees new role be changed to?",
-        name: "updateRole",
+        name: "title",
       },
     ])
     .then(function (answer) {
