@@ -193,7 +193,7 @@ function addEmployee() {
     .then(function (answer) {
       db.query(
         "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)",
-        [answer.firstName, answer.lastName, answer.roleID, answer.managerID],
+        [answer.first_name, answer.last_name, answer.role_id, answer.manager_id],
         function (err, res) {
           if (err) throw err;
           console.table(res);
@@ -227,7 +227,7 @@ function changeRole() {
     .then(function (answer) {
       db.query(
         "UPDATE employee SET role_id=? WHERE first_name= ?",
-        [answer.updateRole, answer.update],
+        [answer.title, answer.first_name],
         function (err, res) {
           if (err) throw err;
           console.table(res);
