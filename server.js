@@ -105,7 +105,7 @@ function addDepartment() {
     .then(function (answer) {
       db.query(
         "INSERT INTO department (dName) VALUES (?)",
-        [answer.departmentName],
+        [answer.dName],
         function (err, res) {
           if (err) throw err;
           console.table(res);
@@ -143,8 +143,8 @@ function addRole() {
     ])
     .then(function (answer) {
       db.query(
-        "INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)",
-        [answer.roleName, answer.salaryTotal, answer.deptId],
+        "INSERT INTO role (title, salary, dName) VALUES (?, ?, ?)",
+        [answer.title, answer.salary, answer.dName],
         function (err, res) {
           if (err) throw err;
           console.table(res);
